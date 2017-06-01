@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css"><!--Siempre se carga primero el css bootstrap y luego mi regla CSS-->
+    <title>Mi sitio web</title>
+  </head>
+  <body>
+      <!--Contenedor Logo y Titulo-->
+      <div class="container">
+          <div class="row">
+              <div class="col-md-12 text-center">
+                  <img src="http://placehold.it/150x150" alt="Mi Logo">
+                  <br>
+                  <h1>Bienvenidos a mi Sitio web</h1>
+              </div>
+          </div>
+
+      <!--Contenedor nav bar-->
+          <div class="row">
+                <div class="col-md-12">
+                    <nav id="menu-principal">
+                        <ul class="nav nav-tabs">
+                            <li><a href="#" id="inicio">Inicio</a></li>
+                            <li><a href="#" id="servicios">Servicios</a></li>
+                            <li><a href="#" id="contacto">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+    <!--Carrusel de Imagenes -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="sliderPrincipal" class="carousel slide" data-ride="carousel">
+                    <!--Indicadores -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#sliderPrincipal" data-slide-to="0" class="active"></li>
+                        <li data-target="#sliderPrincipal" data-slide-to="1"></li>
+                        <li data-target="#sliderPrincipal" data-slide-to="2"></li>
+                    </ol>
+                    <!--Set de Imagenes -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="http://lorempixel.com/1200/300/abstract" alt="Imagen 1">
+                        </div>
+                        <div class="item">
+                            <img src="http://lorempixel.com/1200/300/" alt="Imagen 2">
+                        </div>
+                        <div class="item">
+                            <img src="http://lorempixel.com/1200/300/business" alt="Imagen 3">
+                        </div>
+                    </div>
+                    <!-- Controles Siguiente Anterior-->
+                    <a href="#sliderPrincipal" class="left carousel-control" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        <span class="sr-only">Anterior</span>
+                    </a>
+                    <a href="#sliderPrincipal" class="right carousel-control" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        <span class="sr-only">Siguiente</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!--Contenido 1 -->
+        <div class="row">
+            <div class="col-md-12">
+                <div id="contenido">
+                    <h1>Aqui va el contenido</h1>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+
+        function cargarInicio(){
+            $("#contenido").load("contenido.html #contenidoinicio");
+        }
+
+        //funcion para validar el formulario
+        function validar(){
+            var estado=true;
+            if($("#email").val()==""){
+                estado = false;
+                $("#email").focus();
+            }
+            return estado;
+        }
+
+        //function validar2(){
+        //    var email = document.getElementById("email");
+        //    if(emai.value==""){
+        //        alert("Ingrese su email");
+        //        email.focus();
+        //    }
+    //    }
+
+    	$(document).ready(function(){
+
+    		cargarInicio()
+
+    		$("#inicio").on("click", function(){
+    			//$("#contenido").html("<h1>Pagina de Inicio</h1>");
+    			$("#contenido").load("contenido.html #contenidoInicio");
+    		});
+
+    		$("#servicios").on("click", function(){
+    			//$("#contenido").html("<h1>Pagina de Servicios</h1>");
+    			$("#contenido").load("contenido.html #contenidoServicios");
+    		});
+
+    		$("#contacto").on("click", function(){
+    			//$("#contenido").html("contenido.html #contenidoContacto");
+    			$("#contenido").load("contenido.html #contenidoContacto");//Coloco el .load para que cargue el div identificado como contenidoContacto del archivo contenido.html
+    		});
+
+    	});
+    </script>
+  </body>
+</html>
